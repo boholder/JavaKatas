@@ -11,15 +11,17 @@ public class Wrapper5 {
     private int col;
 
     private String wrap(String s) {
-        if (s.length() <= col)
+        if (s.length() <= col) {
             return s;
+        }
         int space = (s.substring(0, col).lastIndexOf(' '));
-        if (space != -1)
+        if (space != -1) {
             return breakLine(s, space, 1);
-        else if (s.charAt(col) == ' ')
+        } else if (s.charAt(col) == ' ') {
             return breakLine(s, col, 1);
-        else
+        } else {
             return breakLine(s, col, 0);
+        }
     }
 
     // The Builder Pattern
