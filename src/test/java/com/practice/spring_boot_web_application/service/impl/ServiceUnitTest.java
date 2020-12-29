@@ -31,7 +31,7 @@ import static org.mockito.BDDMockito.given;
 @RunWith(Enclosed.class)
 public class ServiceUnitTest {
     @RunWith(MockitoJUnitRunner.class)
-    public static class testGetEntitiesByCategory {
+    public static class getEntitiesByCategoryTests {
         @Mock
         private Mapper mapper;
 
@@ -63,7 +63,7 @@ public class ServiceUnitTest {
     }
 
     @RunWith(MockitoJUnitRunner.class)
-    public static class testAnotherMethod {
+    public static class anotherMethodTests {
         // Sadly we have to copy these injection into each test class.
         // Put them under ServiceUnitTest class with static modifier also throw NPE when running tests.
         @Mock
