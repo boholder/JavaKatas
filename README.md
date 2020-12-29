@@ -1,7 +1,8 @@
 # Java Katas
 
-Some of katas collected from the Internet have no step-by-step processes,
+Some of katas I collected from the Internet have no step-by-step processes,
 so I extarct the processes from articles and implemented them in Java.
+But now I realized that an example style part of code about a particular function is what I need for practising.
 
 ## What is kata
 
