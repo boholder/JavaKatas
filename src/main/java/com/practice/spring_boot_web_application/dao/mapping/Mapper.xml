@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+
+    <resultMap id="BaseResultMap" type="com.practice.spring_boot_web_application.dao.entity.Entity">
+        <id column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="category" jdbcType="VARCHAR" property="category"/>
+    </resultMap>
+
+    <sql id="TableName">
+        entity
+    </sql>
+
+    <select id="getEntitiesBy" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from
+        <include refid="TableName"/>
+        where category = #{category, jdbcType=VARCHAR}
+    </select>
+
+</mapper>
