@@ -19,9 +19,12 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 
 /**
- * By using this junit runner we can use suite like tests
- * in one file, then we can put method oriented test cases
- * into separated classes (1 method in service, n test cases).
+ * By using "Enclosed.class" junit runner,
+ * we can use suite like tests in one file,
+ * then we can put method oriented test cases
+ * into separated classes but in one file
+ * (one public method in service,
+ * many test cases in one inner class).
  * <p>
  * Make classes which contains Mockito test cases public,
  * as MockitoJUnitRunner can only run on public class.
@@ -30,13 +33,18 @@ import static org.mockito.BDDMockito.given;
  */
 @RunWith(Enclosed.class)
 public class ServiceUnitTest {
-    @RunWith(MockitoJUnitRunner.class)
-    public static class getEntitiesByCategoryTests {
+    static class MethodTestsClass {
+        // Put mocks below under ServiceUnitTest class with static modifier
+        // will throw NPE when running tests.
         @Mock
-        private Mapper mapper;
+        Mapper mapper;
 
         @InjectMocks
-        private ServiceImpl service;
+        ServiceImpl service;
+    }
+
+    @RunWith(MockitoJUnitRunner.class)
+    public static class getEntitiesByCategoryTests extends MethodTestsClass {
 
         @Test
         public void withBadRequest() {
@@ -63,14 +71,7 @@ public class ServiceUnitTest {
     }
 
     @RunWith(MockitoJUnitRunner.class)
-    public static class anotherMethodTests {
-        // Sadly we have to copy these injection into each test class.
-        // Put them under ServiceUnitTest class with static modifier also throw NPE when running tests.
-        @Mock
-        private Mapper mapper;
-
-        @InjectMocks
-        private ServiceImpl service;
+    public static class anotherMethodTests extends MethodTestsClass {
 
         @Test
         public void test() {
