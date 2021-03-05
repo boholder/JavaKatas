@@ -41,6 +41,9 @@ import static org.mockito.BDDMockito.given;
  *  I personally recommend writing an additional configuration class
  *  (use @Configuration, not use @TestConfiguration will it's just loaded as additional config with main config)
  *  and using @Import in the test and overriding full content configuration.
+ *
+ *  What's more, use @Import to add beans that declared with @Autowired in test class.
+ *  Check @MockBean's document for example usage of @Import annotation.
  */
 //@Import(MyCustomTestConfiguration.class)
 /**
