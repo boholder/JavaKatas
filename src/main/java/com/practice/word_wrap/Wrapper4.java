@@ -1,4 +1,4 @@
-package com.practice.wordwrap;
+package com.practice.word_wrap;
 
 
 public class Wrapper4 {

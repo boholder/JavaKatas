@@ -1,11 +1,11 @@
-package com.practice.wordwrap;
+package com.practice.word_wrap;
 
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import static com.practice.wordwrap.Wrapper4.wrap;
+import static com.practice.word_wrap.Wrapper4.wrap;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Suite.class)

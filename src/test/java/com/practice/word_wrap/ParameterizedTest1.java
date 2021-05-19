@@ -1,4 +1,4 @@
-package com.practice.wordwrap;
+package com.practice.word_wrap;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static com.practice.wordwrap.Wrapper1.wrap;
+import static com.practice.word_wrap.Wrapper1.wrap;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Suite.class)
