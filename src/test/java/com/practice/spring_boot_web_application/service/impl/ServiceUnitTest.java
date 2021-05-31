@@ -7,6 +7,7 @@ import com.practice.spring_boot_web_application.dto.Response;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -17,6 +18,8 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 /**
  * By using "Enclosed.class" junit runner,
@@ -67,6 +70,10 @@ public class ServiceUnitTest {
             Response actual = service.getEntitiesBy(buildRequest("normal"));
             assertThat(actual.getMessage(), is("ok"));
             assertThat(actual.getData().get(0).getName(), is("n"));
+            ArgumentCaptor<String> mapperArgCaptor = ArgumentCaptor.forClass(String.class);
+            verify(mapper, times(1)).getEntitiesBy(mapperArgCaptor.capture());
+            String whatMapperGot = mapperArgCaptor.getValue();
+            assertThat(whatMapperGot,is("normal"));
         }
     }
 
