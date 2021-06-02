@@ -17,10 +17,10 @@ public class Presenter {
     private void print(boolean[][] grid, int time) {
         int rowSize = grid.length;
         int colSize = grid[0].length;
-        System.out.println(String.format("Generation %d:", time));
+        System.out.printf("Generation %d:%n", time);
         for (int i = 0; i < rowSize; i++) {
             for (int j = 0; j < colSize; j++) {
-                System.out.print(grid[i][j] ? "#" : "O");
+                System.out.print(grid[i][j] ? "# " : "O ");
             }
             System.out.println();
         }

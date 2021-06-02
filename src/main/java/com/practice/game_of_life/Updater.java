@@ -8,9 +8,7 @@ public class Updater {
         Checker checker = new Checker();
         for (int i = 0; i < rowSize; i++) {
             for (int j = 0; j < colSize; j++) {
-                newGrid[i][j] = grid[i][j] ?
-                        checker.checkLiveCellNextTurnState(grid, i, j) :
-                        checker.checkDeadCellNextTurnState(grid, i, j);
+                newGrid[i][j] = checker.checkCellNextState(grid, i, j);
             }
         }
         return newGrid;
