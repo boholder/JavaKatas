@@ -5,10 +5,9 @@ public class Updater {
         int rowSize = grid.length;
         int colSize = grid[0].length;
         boolean[][] newGrid = new boolean[rowSize][colSize];
-        Checker checker = new Checker();
         for (int i = 0; i < rowSize; i++) {
             for (int j = 0; j < colSize; j++) {
-                newGrid[i][j] = checker.checkCellNextState(grid, i, j);
+                newGrid[i][j] = Checker.checkCellNextState(grid, i, j);
             }
         }
         return newGrid;
